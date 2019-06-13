@@ -13,8 +13,8 @@
 <body class="bg-dark">
 <main class="container mt-4">
     <section class="row">
-        <div class="col-lg-4 offse-lg-4" id="alerta">
-            <div class="alert alert-success text-center" text-center>
+        <div class="col-lg-4 offset-lg-4" id="alerta">
+            <div class="alert alert-success text-center">
                 <strong id="resultado">
                     OLÁ MUNDO BOOTSTRAP!
                 </strong>
