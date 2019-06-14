@@ -59,6 +59,34 @@
             </form>
         </div>
     </section>
+    <br>
+    <br>
+    <!-- Formulário de Recuperação de Senha -->
+    <section class="row">
+        <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
+            <h2 class="text-center mt-4">
+                Nova Senha
+            </h2>
+            <form action="#" method="post" role="form" class="p-2" id="formSenha">
+                <div class="form-group">
+                    <small class="text-muted">
+                        Digite seu e-mail para reber as instruções para gerar nova senha.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="emailNovaSenha" class="form-control" placeholder="Digite seu E-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btnGerar" id="btnGerar" value="Enviar" class="btn btn-primary btn-block">
+                </div>
+                <div class="form-group float-right">
+                    <a href="#" id="btnVoltar">
+                        Voltar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
 </main>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
