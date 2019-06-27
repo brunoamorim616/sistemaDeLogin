@@ -61,6 +61,59 @@
     </section>
     <br>
     <br>
+    
+    <section class="row">
+             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
+                 <h2 class="text-center mt-2">Registrar-se</h2>
+                 <form action="#" method="post" role="form" class="p-2" id="formRegistro">
+                     
+                     <div class="form-group">
+                         <input type="text" name="nomeCompleto" class="form-control" placeholder="Nome Completo" required minlength="6">
+                     </div>
+                     
+                     <div class="form-group">
+                         <input type="text" name="NomeUsuario" class="form-control" placeholder="Nome do Usuário" required minlength="6">   
+                     </div>
+                     
+                     <div class="form-group">
+                         <input type="email" name="EmailUsuario" class="form-control" placeholder="E-mail" required>   
+                     </div>
+                     
+                     <div class="form-group">
+                         <input type="password" id="SenhaUsuário" class="form-control" placeholder="Senha" required minlength="6">   
+                     </div>
+                     
+                     <div class="form-group">
+                         <input type="password" id="SenhaUsuárioConfirmar" class="form-control" placeholder="Confirmar a Senha" required minlength="6">   
+                     </div>
+                     
+                     <div class="form-group">
+                         <div class="custom-control custom-checkbox">
+                         <input type="checkbox" name="concordar" class="custom-control-input" id="checkConcordar">
+                         <label for="checkConcordar" class="custom-control-label">
+                             Eu concordo com os <a href="#">termos e condições.</a>
+                             
+                         </label>
+                         </div>
+                     </div>
+                     
+                     <div class="form-group">
+                         <input type="submit" name="btnRegistroUsuario" id="btnRegistroUsuario" value="Registrar" class="btn btn-primary btn-block">
+                     </div>
+                     
+                     <div class="form-group">
+                         <p class="text-center">
+                             Já registrado?
+                             <a href="#" id="btnEntrarRegistrado">
+                                 Entrar aqui.
+                             </a>
+                         </p>
+                     </div>
+                 </form> 
+             </div>
+    </section>
+    <br>
+    <br>
     <!-- Formulário de Recuperação de Senha -->
     <section class="row">
         <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
