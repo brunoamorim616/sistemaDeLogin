@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['nomeUsuario']))
-        haeder("location:perfil.php");
+        header("location: perfil.php");
 ?>
 <!doctype html>
 <html lang="pt-br">

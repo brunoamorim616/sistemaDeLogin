@@ -47,6 +47,18 @@
   <div class="container" style="color: aliceblue">
     <h1>Bem-Vindo!</h1>
   </div>
+    <br>
+    <br>
+    <br>
+    <h2 class="text-center">
+        <?= $nome ?>
+    </h2>
+    <h2 class="text-center">
+        <?= $email ?>
+    </h2>
+    <h2 class="text-center">
+        <?= $dataCriado ?>
+    </h2>
 </div>
 
 </body>
