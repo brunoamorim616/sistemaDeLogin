@@ -28,7 +28,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'entrar') {
         //Verificando se o check de lembrar está selecionado
         if (!empty($_POST['lembrar'])) {
             //Criando cookies para lembrar senha e usuario na sessao
-            setcookie("nomeUsuario", $nomeusuario, time() + (265 * 24 * 60 * 60));
+            setcookie("nomeusuario", $nomeusuario, time() + (265 * 24 * 60 * 60));
             setcookie("senhaUsuario", $senhaUsuario, time() + (265 * 24 * 60 * 60));
         } else {
             //Limpa o cookie
