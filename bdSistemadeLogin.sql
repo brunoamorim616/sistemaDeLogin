@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Jul-2019 �s 00:26
--- Vers�o do servidor: 10.1.28-MariaDB
+-- Generation Time: 19-Jul-2019 às 02:17
+-- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -36,8 +36,18 @@ CREATE TABLE `usuario` (
   `nomeusuario` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `senha` char(40) COLLATE utf8mb4_bin NOT NULL,
-  `criado` datetime NOT NULL
+  `criado` datetime NOT NULL,
+  `token` char(10) COLLATE utf8mb4_bin NOT NULL,
+  `tokend` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nome`, `nomeusuario`, `email`, `senha`, `criado`, `token`, `tokend`) VALUES
+(1, 'Bruno Amorim', 'adminn', 'admin@admin.com.br', 'd8ed7457a3464c783a4485c5173c8adce2210c1a', '2019-07-18 00:00:00', '', '2019-07-19 00:15:51'),
+(2, 'asdasdasdas', 'asdasdasdasd', 'asdasdasd@as', '99baee504a1fe91a07bc66b6900bd39874191889', '2019-07-19 00:53:05', '', '2019-07-19 00:15:51');
 
 --
 -- Indexes for dumped tables
@@ -57,7 +67,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
