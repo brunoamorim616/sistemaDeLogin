@@ -17,7 +17,7 @@ if (isset($_SESSION['nomeUsuario']))
 
         <title>Sistema de Login</title>
         <style>
-            #alerta,#caixaRegistro,#caixaSenha{
+            #alerta,#caixaRegistro,#caixaSenha,#espera{
                 display: none;
             }
 
@@ -36,8 +36,13 @@ if (isset($_SESSION['nomeUsuario']))
 
                     </div>
                 </div>
-
             </section>
+            
+            <div class="col-lg-4 offset-lg-4 text-center mb-4">    
+                <div class="spinner-border text-primary" role="status" id="espera">
+                    <span class="sr-only">Esperando...</span>
+                </div>
+            </div>
 
             <!-- Formulário de Login -->
             <section class="row">
@@ -97,6 +102,7 @@ if (isset($_SESSION['nomeUsuario']))
 
                 </div>
             </section>
+            
 
             <br>
             <section class="row">
@@ -241,14 +247,15 @@ if (isset($_SESSION['nomeUsuario']))
                 $("#btnRegistroUsuario").click(function (e) {
                     if (document.querySelector("#formRegistro").checkValidity()) {
                         e.preventDefault();
+                        $("#espera").show();
                         $.ajax({
                             url: 'recebe.php',
                             method: 'post',
                             data: $('#formRegistro').serialize() + '&action=registro',
                             success: function (resposta) {
+                                $("#espera").hide();
                                 $('#alerta').show();
                                 $('#resultado').html(resposta);
-
                             }
                         });
                     }
@@ -264,6 +271,7 @@ if (isset($_SESSION['nomeUsuario']))
                 $("#btnEntrar").click(function (e) {
                     if (document.querySelector("#formLogin").checkValidity()) {
                         e.preventDefault();
+                        $("#espera").show();
                         $.ajax({
                             url: 'recebe.php',
                             method: 'post',
@@ -272,6 +280,7 @@ if (isset($_SESSION['nomeUsuario']))
                                 if (resposta === "ok") {
                                     window.location = "perfil.php";
                                 } else {
+                                    $("#espera").hide();
                                     $('#alerta').show();
                                     $('#resultado').html(resposta);
                                 }
@@ -290,13 +299,16 @@ if (isset($_SESSION['nomeUsuario']))
                 $("#btnGerar").click(function (e) {
                     if (document.querySelector("#formSenha").checkValidity()) {
                         e.preventDefault();
+                        $("#espera").show();
                         $.ajax({
                             url: 'recebe.php',
                             method: 'post',
                             data: $('#formSenha').serialize() + '&action=gerar',
                             success: function (resposta) {
+                                $("#espera").hide();
                                 $('#alerta').show();
                                 $('#resultado').html(resposta);
+                                
 
                             }
                         });
