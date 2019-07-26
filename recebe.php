@@ -1,4 +1,5 @@
 <?php
+
 session_start(); //Inicialização da sessão
 //Importanto as confgs do DB
 require_once 'configDB.php';
@@ -21,7 +22,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'entrar') {
     $sql->execute();
     //Verificando se o usuário e a senha estão corretos no BANCO DE DADOS
     $busca = $sql->fetch();
-    if ($busca != null) {   
+    if ($busca != null) {
         //o Usuário e senha existem no banco
         $_SESSION['nomeUsuario'] = $nomeusuario;
         echo 'ok';
@@ -37,9 +38,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'entrar') {
             if (isset($_COOKIE['senhaUsuario']))
                 setcookie('senhaUsuario', '');
         }
-    }else
+    } else
         echo "falhou";
-    
 } else if (isset($_POST['action']) && $_POST['action'] == 'registro') {
     //Sanitização de entradas POST
     $nomeCompleto = verificar_entrada($_POST['nomeCompleto']);
@@ -83,6 +83,25 @@ if (isset($_POST['action']) && $_POST['action'] == 'entrar') {
                 exit();
             }
         }
+    }
+}elseif (isset($_POST['action']) && $_POST['action'] == 'gerar') {
+    $emailGerarSenha = verificar_entrada($_POST['emailGerarSenha']);
+    
+    $sql = $conexão->prepare("SELECT idUsuario FROM usuario WHERE email = ?");
+    $sql->bind_param("s", $emailGerarSenha);
+    $sql->execute();
+    $resposta = $sql->get_result();
+    if($resposta->num_rows > 0){
+        $frase = "dsgdgadfgh34h134yhe4hq34S";
+        $palavra_secreta = str_shuffle($frase);
+        $token = substr($palavra_secreta, 0, 10);
+        
+        $sql = $conexão->prepare("UPDATE usuario SET token = ?,token = tokend = DATE_ADD(now(), INTERVAL 5 MINUTE) WHERE email = ?");
+        $sql->bind_param("ss", $token, $emailGerarSenha);
+        $sql->execute();
+        
+        $link = "<p><a href='http://localhost:8080/sistemaDeLogin/gerarSenha.php?email=$emailGerarSenha&token=$token'>Clique aqui</a> para gerar uma nova senha!";
+        echo $link;
     }
 } else {
     //para não acessar o aqruivo recebe.php
